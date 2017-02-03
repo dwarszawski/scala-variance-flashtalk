@@ -66,18 +66,14 @@
 
 ### scala.Function is contravariant on in its input argument type and covariant on the return type parameter
 
-    * func(a: A): B
+    * func(a: -A): +B
 
-     tyoe A - make fewer requirements on it’s input type - no possible to call a method that only exists on subtypes of A.
-     type B - at least as specialised as B, since the caller of the function may be expecting all the methods on B to be available.
-
- 
 ### Recap
 
 	Depending on class responsibilities
 	
-	* Consumer: accepts values of generic type but does not return it - make it contravariant
+	* Consumer: methods that use generic type as argument but does not return it - make it contravariant
 	
-	* Producer: if only returns values of generic type - make it covariance
+	* Producer: method that returns values of generic type but does not take it as input parameter - make it covariant
 
-    * "PECS" idiom ("Producer extends, Consumer super") because variance annotations are written extends and super in Java.
+    * "PECS" idiom ("Producer extends, Consumer super")
